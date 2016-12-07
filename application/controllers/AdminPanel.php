@@ -9,13 +9,16 @@ class AdminPanel extends CI_Controller {
         $this->load->helper('url');
     }
 
-    public function index()
-    {
+    public function index() {
         $this->load->view('admin_panel');
         $loggedIn = $this->session->userdata('loginState');
 
         if (!$loggedIn) {
-            redirect('/login', 'refresh');
+            //redirect('/login', 'refresh');
         }
 	}
+
+    public function uploadVideo() {
+        
+    }
 }

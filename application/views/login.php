@@ -14,11 +14,11 @@
 
             <div class="col-md-4">
               <section class="login-form">
-                <form method="post" action="#" role="login">
+                <form method="post" action="http://localhost/adminPanel/index.php/login/authenticate/" role="login">
                   <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
-                  <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="joestudent@gmail.com" />
+                  <input type="text" name="username" placeholder="Username" required class="form-control input-lg" />
 
-                  <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+                  <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required="" />
 
 
                   <div class="pwstrength_viewport_progress"></div>
@@ -43,5 +43,7 @@
         <script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- app js -->
+        <script src="<?php echo base_url(); ?>assets/js/app/login.js"></script>
     </body>
 </html>
