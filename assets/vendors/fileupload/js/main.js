@@ -34,9 +34,10 @@ $(function () {
             $('.uploaded-items').hide();
             $('#fileupload').hide();
             $('.video-source').attr('src','https://s3-eu-west-1.amazonaws.com/shashithbucket/9958133_videoplayback.mp4' );
-            console.log($('#name').val();
-            $('#video-name').val();
+            $('#video-name').html($('#name').val());
             $('#video-description').html($('#description').val());
+            $('#video-name-back').val($('#name').val());
+            $('#video-description-back').val($('#description').val());
             $('#video-player').show();
         }
     });

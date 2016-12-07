@@ -12,7 +12,12 @@ class Login extends CI_Controller {
 
     public function index()
     {
-       $this->load->view('login');
+        $loggedIn = $this->session->userdata('loginState');
+        if ($loggedIn) {
+            redirect('/adminPanel', 'refresh');
+        } else {
+            $this->load->view('login');
+        }
     }
 
     public function authenticate()
@@ -24,6 +29,7 @@ class Login extends CI_Controller {
         $state = $sp->row()->state;
         if ($state == 1)
         {
+            $this->session->set_userdata('loginState', true);
             redirect('/adminPanel', 'refresh');
         } else {
             redirect('/login');

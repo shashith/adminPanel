@@ -109,8 +109,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="row fileupload-buttonbar">
                                 <div>
                                     <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="File name will get modified.">
+                                        <label for="key">Name</label>
+                                        <input type="text" name="key" class="form-control" id="name" placeholder="File name will get modified.">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
@@ -164,7 +164,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <source src="" type="video/ogg" class="video-source">
                                 Your browser does not support the video tag.
                             </video>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <form method="post" action="http://localhost/adminPanel/index.php/adminPanel/uploadVideo/">
+                                <input type="hidden" name="name" id="video-name-back"></input>
+                                <input type="hidden" name="description" id="video-description-back"></input>
+                                <input type="hidden" name="path" id="video_path" val="/ss"></input>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
