@@ -38,6 +38,7 @@ $(function () {
             $('#video-description').html($('#description').val());
             $('#video-name-back').val($('#name').val());
             $('#video-description-back').val($('#description').val());
+            $('#video-path-back').val(data._response.jqXHR.getResponseHeader('location'));
             $('#video-player').show();
         }
     });

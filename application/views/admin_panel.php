@@ -25,7 +25,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
-
+    <style>
+        #right-col {
+            min-height: calc(100% - 52px) !important;
+        }
+    </style>
     <!-- blueimp Gallery styles -->
     <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
@@ -38,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <body class="nav-md">
     <div class="container body">
-      <div class="main_container">
+      <div class="main_container" style="height:100vh;">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -96,11 +100,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" id="right-col">
         <!-- top tiles -->
         <br/>
             <div class="row">
-                <div style="margin: 20px;height:100%;">
+                <div style="margin: 20px;">
                     <div class="x_panel">
                         <form id="fileupload" action="http://d13vrbqs2im1b3.cloudfront.net/" method="POST" enctype="multipart/form-data">
                             <!-- Redirect browsers with JavaScript disabled to the origin page -->
@@ -167,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <form method="post" action="http://localhost/adminPanel/index.php/adminPanel/uploadVideo/">
                                 <input type="hidden" name="name" id="video-name-back"></input>
                                 <input type="hidden" name="description" id="video-description-back"></input>
-                                <input type="hidden" name="path" id="video_path" val="/ss"></input>
+                                <input type="hidden" name="path" id="video-path-back"></input>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed</button>
                             </form>
 
