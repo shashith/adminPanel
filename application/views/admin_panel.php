@@ -44,58 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container body">
       <div class="main_container" style="height:100vh;">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <!-- menu profile quick info -->
-            <div class="profile">
-              <div class="profile_pic">
-                <img src="<?php echo base_url(); ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div>
-            <!-- /menu profile quick info -->
-
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- /sidebar menu -->
-          </div>
+            <?php $this->load->view('partial/leftnav') ?>
         </div>
 
         <!-- top navigation -->
         <div class="top_nav">
-          <div class="nav_menu">
-            <nav class="" role="navigation">
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+            <?php $this->load->view('partial/topnav') ?>
         </div>
         <!-- /top navigation -->
 
@@ -172,7 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="hidden" name="name" id="video-name-back"></input>
                                 <input type="hidden" name="description" id="video-description-back"></input>
                                 <input type="hidden" name="path" id="video-path-back"></input>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToVideo</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                             </form>
 
                         </div>
@@ -184,10 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
+            <?php $this->load->view('partial/footer') ?>
         </footer>
         <!-- /footer content -->
       </div>
@@ -204,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="preview"></span>
             </td>
             <td>
-                <input type="hidden" name="key" value={%="" + Math.floor((Math.random() * 10000000) +  1000000) + "_" + file.name %} required>
+                <input type="hidden" name="key" value={%= $('#name').val() %} required>
             </td>
             <td>
                 <p class="name">{%=file.name%}</p>

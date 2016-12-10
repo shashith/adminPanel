@@ -15,7 +15,7 @@ class AdminPanel extends CI_Controller {
         $loggedIn = $this->session->userdata('loginState');
 
         if (!$loggedIn) {
-            edirect('/login', 'refresh');
+            redirect('/login', 'refresh');
         }
 	}
 
@@ -24,5 +24,11 @@ class AdminPanel extends CI_Controller {
         $description = $_POST["description"];
         $video_path = $_POST["path"];
         $sp = $this->db->query("call insert_video(? ,?, ?, ?)", array($name, $description, $video_path, date('Y-m-d H:i:sa')));
+        $this->session->set_userdata('video-id', $sp->row()->ID);
+        //send request to API
+        $this->load->library('PHPRequests');
+        $response = Requests::get('http://localhost/HRE/ToVideo.php?FileName=' . $name);
+        $this->session->set_userdata('to-video-json', $response->body);
+        redirect('/toFrameSet');
     }
 }

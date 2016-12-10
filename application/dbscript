@@ -42,15 +42,16 @@ DELIMITER //
         END;
     END //
 DELIMITER ;
-    DELIMITER //
-        CREATE PROCEDURE insert_video
-        (
-            IN name varchar(100),
-            IN description varchar(100),
-            IN video_path varchar(100),
-            IN created_time DATETIME
-        )
-        BEGIN
-            insert into video (name, description, path, created_time) values (name, description, video_path, created_time);
-        END //
-    DELIMITER ;
+DELIMITER //
+    CREATE PROCEDURE insert_video
+    (
+        IN name varchar(100),
+        IN description varchar(100),
+        IN video_path varchar(100),
+        IN created_time DATETIME
+    )
+    BEGIN
+        insert into video (name, description, path, created_time) values (name, description, video_path, created_time);
+        SELECT LAST_INSERT_ID() as ID;
+    END //
+DELIMITER ;
