@@ -15,7 +15,7 @@
             <div class="col-md-4">
               <section class="login-form">
                 <form method="post" action="http://localhost/adminPanel/index.php/login/authenticate/" role="login">
-                  <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+                  <img src="<?php echo base_url(); ?>assets/images/logo.png" class="img-responsive" alt="" />
                   <input type="text" name="username" placeholder="Username" required class="form-control input-lg" />
 
                   <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required="" />

@@ -13,6 +13,7 @@ class AdminPanel extends CI_Controller {
     public function index() {
         $this->load->view('admin_panel');
         $loggedIn = $this->session->userdata('loginState');
+        $this->session->set_userdata('selected_page', 'admin_panel');
 
         if (!$loggedIn) {
             redirect('/login', 'refresh');
@@ -27,7 +28,7 @@ class AdminPanel extends CI_Controller {
         $this->session->set_userdata('video-id', $sp->row()->ID);
         //send request to API
         $this->load->library('PHPRequests');
-        $response = Requests::get('http://localhost/HRE/ToVideo.php?FileName=' . $name);
+        $response = Requests::get(TO_VIDEO . '?FileName=' . $name);
         $this->session->set_userdata('to-video-json', $response->body);
         redirect('/toFrameSet');
     }

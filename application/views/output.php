@@ -59,25 +59,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
             <div class="row">
                 <div style="margin: 20px;">
-                    <div class="x_panel">
-                        <div>
-                            <dl class="dl-horizontal">
-                                <?php
-
-                                    foreach( json_decode($toVideoJson) as $key => $value)
-                                    {
-                                            echo "<dt>" . $key . "</dt>";
-                                            echo "<dd>" . $value . "</dd>";
-                                    }
-                                ?>
-                            </dl>
-                            <form method="post" action="http://localhost/adminPanel/index.php/toFrameSet/convertToFrameSet/">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToFrameSet</button>
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
-                            </form>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

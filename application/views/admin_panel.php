@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div style="margin: 20px;">
                     <div class="x_panel">
-                        <form id="fileupload" action="http://d13vrbqs2im1b3.cloudfront.net/" method="POST" enctype="multipart/form-data">
+                        <form id="fileupload" action="<?php echo CLOUD_FRONT ?>" method="POST" enctype="multipart/form-data">
                             <!-- Redirect browsers with JavaScript disabled to the origin page -->
                             <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
                             <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div>
                                     <div class="form-group">
                                         <label for="key">Name</label>
-                                        <input type="text" name="key" class="form-control" id="name" placeholder="File name will get modified.">
+                                        <input type="text" name="key" value="<?php echo TEMP_VIDEO ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
@@ -78,21 +78,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <span class="btn btn-success fileinput-button">
                                         <i class="glyphicon glyphicon-plus"></i>
                                         <span>Add file</span>
-                                        <input type="file" name="file" accept="video/*">
+                                        <input type="file" name="file" accept="video/*" id="file">
                                     </span>
                                     <button type="submit" class="btn btn-primary start">
                                         <i class="glyphicon glyphicon-upload"></i>
                                         <span>Start upload</span>
                                     </button>
-                                    <button type="reset" class="btn btn-warning cancel">
-                                        <i class="glyphicon glyphicon-ban-circle"></i>
-                                        <span>Cancel upload</span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger delete">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                        <span>Delete</span>
-                                    </button>
-                                    <input type="checkbox" class="toggle">
                                     <!-- The global file processing state -->
                                     <span class="fileupload-process"></span>
                                 </div>
@@ -150,7 +141,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Bootstrap -->
     <script src="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script id="template-upload" type="text/x-tmpl">
-    {% for (var i=0, file; file=o.files[i]; i++) { %}
+    {%
+        $('#file').prop( "disabled", true );
+    %}
+    {%
+        for (var i=0, file; file=o.files[i]; i++) { %}
         <tr class="template-upload fade uploaded-items">
             <td>
                 <span class="preview"></span>
@@ -159,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="hidden" name="key" value={%= $('#name').val() %} required>
             </td>
             <td>
-                <p class="name">{%=file.name%}</p>
+                <p class="name">{%=$('#name').val()%}</p>
                 <strong class="error text-danger"></strong>
             </td>
             <td>

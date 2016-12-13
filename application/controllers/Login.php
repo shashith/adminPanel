@@ -22,13 +22,16 @@ class Login extends CI_Controller {
 
     public function authenticate()
     {
-        $name = $_POST["username"];
+        $username = $_POST["username"];
         $pw = $_POST["password"];
-        $resutrow = 'select authenticate('. $name . ',' . $pw . ')';
-        $sp = $this->db->query("select authenticate(? ,?) as state", array($name, $pw));
+        $resutrow = 'select authenticate('. $username . ',' . $pw . ')';
+        $sp = $this->db->query("select authenticate(? ,?) as state", array($username, $pw));
         $state = $sp->row()->state;
         if ($state == 1)
         {
+            $data = $this->db->query("select Name, Email from user where UserName = '" . $username . "'");
+            $this->session->set_userdata('Name', $data->row()->Name);
+            $this->session->set_userdata('Email', $data->row()->Email);
             $this->session->set_userdata('loginState', true);
             redirect('/adminPanel', 'refresh');
         } else {

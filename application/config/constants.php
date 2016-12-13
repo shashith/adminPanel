@@ -83,3 +83,25 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+//defining routes to access API
+/*
+define('TO_VIDEO', 'http://localhost/HRE/ToVideo.php');
+define('TO_FRAME_SET', 'http://localhost/HRE/ToFrameSet.php');
+define('TO_FRAME_SET_FROM_IMAGE', 'http://localhost/HRE/ToFrameSetFromImage.php');
+define('TO_MERGE_FRAME_SET', 'http://localhost/HRE/ToMergeFrameset.php');
+define('TO_FINAL_VIDEO', 'http://localhost/HRE/ToFinalVideo.php.php');
+*/
+
+define('TO_VIDEO', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToVideo.php');
+define('TO_FRAME_SET', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFrameSet.php');
+define('TO_FRAME_SET_FROM_IMAGE', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFrameSetFromImage.php');
+define('TO_MERGE_FRAME_SET', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToMergeFrameset.php');
+define('TO_FINAL_VIDEO', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFinalVideo.php');
+
+//defining upload locations and cloud front url
+define('CLOUD_FRONT', 'http://d13vrbqs2im1b3.cloudfront.net/');
+define('TEMP_VIDEO', 'TempVideo/');
+define('TEMP_JSON', 'TempJson/');
+define('TEMP_IMAGE', 'TempImage/');

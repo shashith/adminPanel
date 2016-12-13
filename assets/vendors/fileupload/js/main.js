@@ -32,7 +32,6 @@ $(function () {
     $('#fileupload').fileupload({
         done: function (e, data) {
             $('.uploaded-items').hide();
-            $('#fileupload').hide();
             $('.video-source').attr('src','https://s3-eu-west-1.amazonaws.com/shashithbucket/9958133_videoplayback.mp4' );
             $('#video-name').html($('#name').val());
             $('#video-description').html($('#description').val());

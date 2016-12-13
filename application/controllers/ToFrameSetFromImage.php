@@ -12,7 +12,7 @@ class ToFrameSetFromImage extends CI_Controller {
 
     public function index() {
         $loggedIn = $this->session->userdata('loginState');
-
+        $this->session->set_userdata('selected_page', 'to_frame_set_from_image');
         if (!$loggedIn) {
             redirect('/login', 'refresh');
         }
@@ -22,6 +22,15 @@ class ToFrameSetFromImage extends CI_Controller {
         $this->load->view('to_frame_set_from_image', $data);
 	}
 
-    public function convertToFrameSet() {
+    public function convertToFrameSetFromImage() {
+        $imageName = $_POST["image"];
+        $jsonName = $_POST["json"];
+        $this->load->library('PHPRequests');
+        $options = array(
+            'timeout' => 120,
+        );
+        $response = Requests::get(TO_FRAME_SET_FROM_IMAGE . '?Image=' .$imageName . '&Json='. $jsonName, array(), $options);
+        $this->session->set_userdata('to-frame-set-from-image', $response->body);
+        redirect('/toMergeFrameSet');
     }
 }
