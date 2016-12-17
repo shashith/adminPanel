@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>Video Editor</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div id="json-upload">
                                             <div class="form-group">
                                                 <label for="key">Json Name</label>
-                                                <input type="text" name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                                <input type="text" value="abc2.json" disabled name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                             </div>
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
@@ -104,8 +104,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                         <div id="image-upload" style="display:none;">
                                             <div class="form-group">
-                                                <label for="key">Image Name</label>
-                                                <input type="text" name="key" value="<?php echo TEMP_IMAGE ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                                <label for="key" >Image Name</label>
+                                                <input type="text" value="abc.png" disabled name="key" value="<?php echo TEMP_IMAGE ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                             </div>
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
@@ -137,9 +137,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <!-- The table listing the files available for upload/download -->
                                 <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
                             </form>
-                            <form method="post" action="http://localhost/adminPanel/index.php/toFrameSetFromImage/convertToFrameSetFromImage/">
-                                <input type="hidden" name="image" value="abc"></input>
-                                <input type="hidden" name="json" value="abc2"></input>
+                            <form method="post" action="<?php echo base_url(); ?>index.php/toFrameSetFromImage/convertToFrameSetFromImage/">
+                                <input type="hidden" id="image" name="image" value="abc"></input>
+                                <input type="hidden" id="json" name="json"  value="abc2"></input>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToFrameSetFromImage</button>
                                 <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                             </form>
@@ -165,7 +165,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('#json-upload').remove();
         };
         function hideUpload() {
-            $('#fileupload').hide();
+            /*var jsonName = $('.json-name').val();
+            $('#json').val(jsonName.substr(0, input.lastIndexOf('.')) || jsonName);
+            var imageName = $('.image-name').val();
+            $('#image').val(imageName.substr(0, input.lastIndexOf('.')) || imageName);
+            */
+            setTimeout(function(){ $('#fileupload').hide(); }, 5000);
         };
     </script>
     <script id="template-upload" type="text/x-tmpl">

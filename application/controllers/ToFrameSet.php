@@ -17,8 +17,7 @@ class ToFrameSet extends CI_Controller {
             redirect('/login', 'refresh');
         }
         $toVideoJson = $this->session->userdata('to-video-json');
-        $toVideoJsonLink = $this->session->userdata('to-video-json-link');
-        $data = array('toVideoJson' => $toVideoJson, 'toVideoJsonLink' => $toVideoJsonLink);
+        $data = array('toVideoJson' => $toVideoJson);
         $this->load->view('to_frame_set', $data);
     }
 
@@ -31,6 +30,7 @@ class ToFrameSet extends CI_Controller {
         );
         $response = Requests::get(TO_FRAME_SET . '?VideoID=' . $videoID, array(), $options);
         $this->session->set_userdata('to-frame-set-json', $response->body);
+        $this->session->set_userdata('base-video-id', json_decode($response->body)->{ID});
         redirect('/toFrameSetFromImage');
     }
 }

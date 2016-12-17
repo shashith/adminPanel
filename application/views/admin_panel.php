@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>Video Editor</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <source src="" type="video/ogg" class="video-source">
                                 Your browser does not support the video tag.
                             </video>
-                            <form method="post" action="http://localhost/adminPanel/index.php/adminPanel/uploadVideo/">
+                            <form method="post" action="<?php echo base_url(); ?>index.php/adminPanel/uploadVideo/">
                                 <input type="hidden" name="name" id="video-name-back"></input>
                                 <input type="hidden" name="description" id="video-description-back"></input>
                                 <input type="hidden" name="path" id="video-path-back"></input>

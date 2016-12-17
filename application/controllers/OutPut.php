@@ -11,11 +11,13 @@ class OutPut extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('output');
         $loggedIn = $this->session->userdata('loginState');
         $this->session->set_userdata('selected_page', 'output');
         if (!$loggedIn) {
             redirect('/login', 'refresh');
         }
+        $toFinalVideo = $this->session->userdata('to-final-video');
+        $data = array('toFinalVideo' => $toFinalVideo);
+        $this->load->view('output', $data);
     }
 }

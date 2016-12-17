@@ -5,16 +5,16 @@
         <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/css/login/login.css" rel="stylesheet">
+        <title>Video Editor</title>
     </head>
     <body>
         <div class="container">
-
           <div class="row" id="pwd-container">
             <div class="col-md-4"></div>
 
             <div class="col-md-4">
               <section class="login-form">
-                <form method="post" action="http://localhost/adminPanel/index.php/login/authenticate/" role="login">
+                <form method="post" action="<?php echo base_url(); ?>/index.php/login/authenticate/" role="login">
                   <img src="<?php echo base_url(); ?>assets/images/logo.png" class="img-responsive" alt="" />
                   <input type="text" name="username" placeholder="Username" required class="form-control input-lg" />
 

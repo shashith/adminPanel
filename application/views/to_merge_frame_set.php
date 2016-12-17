@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>Video Editor</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div style="margin: 20px;">
                     <div class="x_panel">
                         <div>
-                            <form method="post" action="http://localhost/adminPanel/index.php/toMergeFrameSet/mergeFrameSet/">
+                            <dl class="dl-horizontal">
+                                <?php
+                                    $json = json_decode($toFrameSetFromImage);
+                                    echo "<dt>ID</dt>";
+                                    echo "<dd>" . $json->{'ID'} . "</dd>";
+                                    echo "<dt>Duration</dt>";
+                                    echo "<dd>" . $json->{'Duration'} . "</dd>";
+                                    echo "<dt>IsBase</dt>";
+                                    echo "<dd>" . $json->{'IsBase'} . "</dd>";
+                                    echo "<dt>LogInfo</dt>";
+                                    echo "<dd>" . $json->{'LogInfo'} . "</dd>";
+                                    echo "<dt>Audio</dt>";
+                                    echo "<dd>" . $json->{'Audio'} . "</dd>";
+                                    echo "<dt>Number of Frames Generated</dt>";
+                                    echo "<dd>" . count((array)($json->{'Frames'})) . "</dd>";
+                                ?>
+                            </dl>
+                            <form method="post" action="<?php echo base_url(); ?>index.php/toMergeFrameSet/mergeFrameSet/">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToMergeFrameSet</button>
                                 <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                             </form>

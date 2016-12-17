@@ -11,20 +11,23 @@ class ToFinalVideo extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('to_final_video');
         $loggedIn = $this->session->userdata('loginState');
         $this->session->set_userdata('selected_page', 'to_final_video');
         if (!$loggedIn) {
             redirect('/login', 'refresh');
         }
+        $toMergeFrameSetJson = $this->session->userdata('to-merge-frame-set-json');
+        $data = array('toMergeFrameSetJson' => $toMergeFrameSetJson);
+        $this->load->view('to_final_video', $data);
     }
 
-    public function convertToFinalVideo()
+    public function convertToFinalVideo() {
         $this->load->library('PHPRequests');
         $options = array(
             'timeout' => 120,
         );
-        $response = Requests::get(TO_FINAL_VIDEO, array(), $options);
+        $toMergeFrameSetId = $this->session->userdata('to-merge-frame-set-id');
+        $response = Requests::get(TO_FINAL_VIDEO . '?FrameSetID=' . $toMergeFrameSetId, array(), $options);
         $this->session->set_userdata('to-final-video', $response->body);
         redirect('/outPut');
     }

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>Video EditorV </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,6 +59,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
             <div class="row">
                 <div style="margin: 20px;">
+                    <div class="x_panel">
+                        <dl class="dl-horizontal">
+                            <?php
+
+                                foreach( json_decode($toFinalVideo) as $value)
+                                {
+                                        echo "<dd>" . $value . "</dd>";
+                                }
+                            ?>
+                        </dl>
+                        <video width="700" height="500" controls>
+                            <source src="" type="video/mp4" class="video-source">
+                            <source src="" type="video/ogg" class="video-source">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>Video Editor</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     }
                                 ?>
                             </dl>
-                            <form method="post" action="http://localhost/adminPanel/index.php/toFrameSet/convertToFrameSet/">
+                            <form method="post" action="<?php echo base_url(); ?>index.php/toFrameSet/convertToFrameSet/">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToFrameSet</button>
                                 <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                             </form>
