@@ -106,7 +106,7 @@ define('TO_FRAME_SET_FROM_IMAGE', 'http://localhost:8888/Functions/ToChildFrameS
 define('TO_MERGE_FRAME_SET', 'http://localhost:8888/Functions/ToMergeFrameSet.php');
 define('TO_FINAL_VIDEO', 'http://localhost:8888/Functions/ToFinalOutput.php');
 //defining upload locations and cloud front url
-define('CLOUD_FRONT', 'http://d13vrbqs2im1b3.cloudfront.net/');
+define('CLOUD_FRONT', '');
 define('TEMP_VIDEO', '');
 define('TEMP_JSON', '');
 define('TEMP_IMAGE', '');
