@@ -32,6 +32,11 @@ class AdminPanel extends CI_Controller {
         //send request to API
         $this->load->library('PHPRequests');
         $response = Requests::get(TO_VIDEO . '?FileName=' . $name . '&Duration=' . $duration . '&Height=' . $height . '&Width=' . $width);
+        $json = json_decode($response->body);
+        if (isset( $json->{'Error Details'})) {
+            $this->session->set_userdata('error', $response->body);
+            redirect('/error');
+        }
         $this->session->set_userdata('to-video-json', $response->body);
         redirect('/toFrameSet');
     }

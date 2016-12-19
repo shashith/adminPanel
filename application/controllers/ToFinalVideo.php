@@ -28,6 +28,11 @@ class ToFinalVideo extends CI_Controller {
         );
         $toMergeFrameSetId = $this->session->userdata('to-merge-frame-set-id');
         $response = Requests::get(TO_FINAL_VIDEO . '?FrameSet=' . $toMergeFrameSetId, array(), $options);
+        $json = json_decode($response->body);
+        if (isset( $json->{'Error Details'})) {
+            $this->session->set_userdata('error', $response->body);
+            redirect('/error');
+        }
         $this->session->set_userdata('to-final-video', $response->body);
         redirect('/outPut');
     }

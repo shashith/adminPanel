@@ -30,6 +30,11 @@ class ToMergeFrameSet extends CI_Controller {
             'timeout' => 600,
         );
         $response = Requests::get(TO_MERGE_FRAME_SET. '?ChildFrameSet=' . $childId, array(), $options);
+        $json = json_decode($response->body);
+        if (isset( $json->{'Error Details'})) {
+            $this->session->set_userdata('error', $response->body);
+            redirect('/error');
+        }
         $this->session->set_userdata('to-merge-frame-set-json', $response->body);
         $this->session->set_userdata('to-merge-frame-set-id', json_decode($response->body)->{'ID'});
         redirect('/toFinalVideo');

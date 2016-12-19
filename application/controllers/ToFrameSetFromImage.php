@@ -31,6 +31,11 @@ class ToFrameSetFromImage extends CI_Controller {
             'timeout' => 600,
         );
         $response = Requests::get(TO_FRAME_SET_FROM_IMAGE . '?Image=' . $imageName . '&Json=' . $jsonName . '&BaseFrameSet=' . $baseFrameSet, array(), $options);
+        $json = json_decode($response->body);
+        if (isset( $json->{'Error Details'})) {
+            $this->session->set_userdata('error', $response->body);
+            redirect('/error');
+        }
         $this->session->set_userdata('to-frame-set-from-image', $response->body);
         $this->session->set_userdata('child-video-id', json_decode($response->body)->{'ID'});
         redirect('/toMergeFrameSet');

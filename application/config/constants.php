@@ -92,7 +92,7 @@ define('TO_FRAME_SET', 'http://localhost/HRE/ToFrameSet.php');
 define('TO_FRAME_SET_FROM_IMAGE', 'http://localhost/HRE/ToFrameSetFromImage.php');
 define('TO_MERGE_FRAME_SET', 'http://localhost/HRE/ToMergeFrameSet.php');
 define('TO_FINAL_VIDEO', 'http://localhost/HRE/ToFinalVideo.php');
-define('CLOUD_FRONT', 'http://d13vrbqs2im1b3.cloudfront.net/');
+define('CLOUD_FRONT', '');
 define('TEMP_VIDEO', '');
 define('TEMP_JSON', '');
 define('TEMP_IMAGE', '');
