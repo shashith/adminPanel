@@ -68,22 +68,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div>
                                     <div class="form-group">
                                         <label for="key">Name</label>
-                                        <input type="text" name="key" value="<?php echo TEMP_VIDEO ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                        <input type="text" name="key" required value="<?php echo TEMP_VIDEO ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea class="form-control" id="description" rows="3" name="description"></textarea>
                                     </div>
                                     <!-- The fileinput-button span is used to style the file input field as button -->
-                                    <span class="btn btn-success fileinput-button">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                        <span>Add file</span>
-                                        <input type="file" name="file" accept="video/*" id="file">
-                                    </span>
-                                    <button type="submit" class="btn btn-primary start">
-                                        <i class="glyphicon glyphicon-upload"></i>
-                                        <span>Start upload</span>
-                                    </button>
+                                    <div class="uploaded-items" >
+                                        <span class="btn btn-success fileinput-button">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <span>Add file</span>
+                                            <input type="file" name="file" accept="video/*" id="file">
+                                        </span>
+                                        <button type="submit" class="btn btn-primary start">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                            <span>Start upload</span>
+                                        </button>
+                                    </div>
                                     <!-- The global file processing state -->
                                     <span class="fileupload-process"></span>
                                 </div>
@@ -117,10 +119,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <input type="hidden" name="name" id="video-name-back"></input>
                                 <input type="hidden" name="description" id="video-description-back"></input>
                                 <input type="hidden" name="path" id="video-path-back"></input>
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="text" name="duration" class="form-control" id="duration" placeholder="Duration of the file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <input type="text" name="height" class="form-control" id="height">
+                                </div>
+                                <div class="form-group">
+                                    <label for="width">Width</label>
+                                    <input type="text" name="width" class="form-control" id="width">
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToVideo</button>
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="cancle()">Cancel</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -135,7 +148,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- /footer content -->
       </div>
     </div>
+    <script>
+        function cancle() {
+            location.reload();
+        }
 
+    </script>
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

@@ -27,7 +27,7 @@ class ToFinalVideo extends CI_Controller {
             'timeout' => 120,
         );
         $toMergeFrameSetId = $this->session->userdata('to-merge-frame-set-id');
-        $response = Requests::get(TO_FINAL_VIDEO . '?FrameSetID=' . $toMergeFrameSetId, array(), $options);
+        $response = Requests::get(TO_FINAL_VIDEO . '?FrameSet=' . $toMergeFrameSetId, array(), $options);
         $this->session->set_userdata('to-final-video', $response->body);
         redirect('/outPut');
     }

@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div id="json-upload">
                                             <div class="form-group">
                                                 <label for="key">Json Name</label>
-                                                <input type="text" value="abc2.json" disabled name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                                <input type="text" name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                             </div>
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div id="image-upload" style="display:none;">
                                             <div class="form-group">
                                                 <label for="key" >Image Name</label>
-                                                <input type="text" value="abc.png" disabled name="key" value="<?php echo TEMP_IMAGE ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                                <input type="text" name="key" value="<?php echo TEMP_IMAGE ?>" class="form-control" id="name" placeholder="File name will get modified.">
                                             </div>
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
@@ -140,6 +140,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <form method="post" action="<?php echo base_url(); ?>index.php/toFrameSetFromImage/convertToFrameSetFromImage/">
                                 <input type="hidden" id="image" name="image" value="abc"></input>
                                 <input type="hidden" id="json" name="json"  value="abc2"></input>
+                                <div class="form-group">
+                                    <label for="image">Image name with extention</label>
+                                    <input type="text" name="image" class="form-control" id="width">
+                                </div>
+                                <div class="form-group">
+                                    <label for="json">Json name with extention</label>
+                                    <input type="text" name="json" class="form-control" id="width">
+                                </div>
+                                <div class="form-group">
+                                    <label for="baseFrameSet">Base Frame Set</label>
+                                    <input type="text" name="baseFrameSet" class="form-control" id="width">
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToFrameSetFromImage</button>
                                 <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                             </form>

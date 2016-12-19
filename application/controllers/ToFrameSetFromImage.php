@@ -25,14 +25,14 @@ class ToFrameSetFromImage extends CI_Controller {
     public function convertToFrameSetFromImage() {
         $imageName = $_POST["image"];
         $jsonName = $_POST["json"];
-        print_r($imageName);
+        $baseFrameSet = $_POST["baseFrameSet"];
         $this->load->library('PHPRequests');
         $options = array(
             'timeout' => 600,
         );
-        $response = Requests::get(TO_FRAME_SET_FROM_IMAGE . '?Image=' .$imageName . '&Json='. $jsonName, array(), $options);
+        $response = Requests::get(TO_FRAME_SET_FROM_IMAGE . '?Image=' . $imageName . '&Json=' . $jsonName . '&BaseFrameSet=' . $baseFrameSet, array(), $options);
         $this->session->set_userdata('to-frame-set-from-image', $response->body);
         $this->session->set_userdata('child-video-id', json_decode($response->body)->{'ID'});
-        //redirect('/toMergeFrameSet');
+        redirect('/toMergeFrameSet');
     }
 }

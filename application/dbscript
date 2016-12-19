@@ -17,6 +17,7 @@ create table video
     description VARCHAR (700),
     path VARCHAR (300),
     created_time DATETIME,
+    ToVideoID VARCHAR (100),
     PRIMARY KEY (ID)
 );
 #insert user into user table

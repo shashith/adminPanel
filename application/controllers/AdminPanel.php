@@ -24,11 +24,14 @@ class AdminPanel extends CI_Controller {
         $name = $_POST["name"];
         $description = $_POST["description"];
         $video_path = $_POST["path"];
+        $duration = $_POST["duration"];
+        $height = $_POST["height"];
+        $width = $_POST["width"];
         $sp = $this->db->query("call insert_video(? ,?, ?, ?)", array($name, $description, $video_path, date('Y-m-d H:i:sa')));
         $this->session->set_userdata('video-id', $sp->row()->ID);
         //send request to API
         $this->load->library('PHPRequests');
-        $response = Requests::get(TO_VIDEO . '?FileName=' . $name);
+        $response = Requests::get(TO_VIDEO . '?FileName=' . $name . '&Duration=' . $duration . '&Height=' . $height . '&Width=' . $width);
         $this->session->set_userdata('to-video-json', $response->body);
         redirect('/toFrameSet');
     }

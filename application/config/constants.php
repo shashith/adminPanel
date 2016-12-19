@@ -99,11 +99,11 @@ define('TEMP_IMAGE', '');
 
 
 /*
-define('TO_VIDEO', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToVideo.php');
-define('TO_FRAME_SET', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFrameSet.php');
-define('TO_FRAME_SET_FROM_IMAGE', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFrameSetFromImage.php');
-define('TO_MERGE_FRAME_SET', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToMergeFrameSet.php');
-define('TO_FINAL_VIDEO', 'http://ec2-52-50-158-158.eu-west-1.compute.amazonaws.com:8080/ToFinalVideo.php');
+define('TO_VIDEO', 'http://localhost:8888/Functions/ToVideo.php');
+define('TO_FRAME_SET', 'http://localhost:8888/Functions/ToFrameSet.php');
+define('TO_FRAME_SET_FROM_IMAGE', 'http://localhost:8888/Functions/ToChildFrameSet.php');
+define('TO_MERGE_FRAME_SET', 'http://localhost:8888/Functions/ToMergeFrameSet.php');
+define('TO_FINAL_VIDEO', 'http://localhost:8888/Functions/ToFinalOutput.php');
 //defining upload locations and cloud front url
 define('CLOUD_FRONT', 'http://d13vrbqs2im1b3.cloudfront.net/');
 define('TEMP_VIDEO', 'TempVideo/');

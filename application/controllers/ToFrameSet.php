@@ -26,11 +26,17 @@ class ToFrameSet extends CI_Controller {
         $videoID = json_decode($toVideoJson)->{'ID'};
         $this->load->library('PHPRequests');
         $options = array(
-            'timeout' => 60,
+            'timeout' => 600,
         );
-        $response = Requests::get(TO_FRAME_SET . '?VideoID=' . $videoID, array(), $options);
+        $response = Requests::get(TO_FRAME_SET . '?RawMaterialsID=' . $videoID, array(), $options);
+        $json = json_decode($response->body);
+        if (isset( $json->{'Error Details'})) {
+            $this->session->set_userdata('error', $response->body);
+            redirect('/error');
+        }
         $this->session->set_userdata('to-frame-set-json', $response->body);
-        $this->session->set_userdata('base-video-id', json_decode($response->body)->{ID});
+        $this->session->set_userdata('base-video-id', json_decode($response->body)->{'ID'});
+        //$sp = $this->db->query("UPDATE video SET ToVideoID=" . $response->body . " where ID=" . $this->session->userdata('to-video-json'));
         redirect('/toFrameSetFromImage');
     }
 }
