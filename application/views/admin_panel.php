@@ -116,7 +116,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 Your browser does not support the video tag.
                             </video>
                             <form method="post" action="<?php echo base_url(); ?>index.php/adminPanel/uploadVideo/">
-                                <input name="name" id="video-name-back"></input>
+                                <div class="form-group">
+                                    <label for="name">File Name</label>
+                                    <input name="name" class="form-control" id="video-name-back"></input>
+                                </div>
                                 <input type="hidden" name="description" id="video-description-back"></input>
                                 <input type="hidden" name="path" id="video-path-back"></input>
                                 <div class="form-group">
