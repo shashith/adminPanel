@@ -64,6 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <dl class="dl-horizontal">
                                 <?php
                                     $json = json_decode($toMergeFrameSetJson);
+                                    /*
                                     echo "<dt>ID</dt>";
                                     echo "<dd>" . $json->{'ID'} . "</dd>";
                                     echo "<dt>Duration</dt>";
@@ -74,6 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     echo "<dd>" . $json->{'LogInfo'} . "</dd>";
                                     echo "<dt>Audio</dt>";
                                     echo "<dd>" . $json->{'Audio'} . "</dd>";
+                                    */
                                     echo "<dt>Number of Frames Generated</dt>";
                                     echo "<dd>" . count((array)($json->{'Frames'})) . "</dd>";
                                 ?>

@@ -39,5 +39,6 @@ class AdminPanel extends CI_Controller {
         }
         $this->session->set_userdata('to-video-json', $response->body);
         redirect('/toFrameSet');
+
     }
 }

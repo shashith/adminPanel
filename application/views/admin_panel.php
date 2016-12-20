@@ -102,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- The table listing the files available for upload/download -->
                             <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
                         </form>
-                        <div id="video-player" style="display:none;">
+                        <div id="video-info" style="display:none;">
                             <dl class="dl-horizontal">
                                 <dt>Name</dt>
                                 <dd id="video-name"></dd>
@@ -110,13 +110,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <dt>Description</dt>
                                 <dd id="video-description"></dd>
                             </dl>
-                            <video width="320" height="240" controls>
+                            <video width="320" height="240" control id="video" >
                                 <source src="" type="video/mp4" class="video-source">
                                 <source src="" type="video/ogg" class="video-source">
                                 Your browser does not support the video tag.
                             </video>
                             <form method="post" action="<?php echo base_url(); ?>index.php/adminPanel/uploadVideo/">
-                                <input type="hidden" name="name" id="video-name-back"></input>
+                                <input name="name" id="video-name-back"></input>
                                 <input type="hidden" name="description" id="video-description-back"></input>
                                 <input type="hidden" name="path" id="video-path-back"></input>
                                 <div class="form-group">
@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <input type="text" name="width" class="form-control" id="width">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Proceed to Function ToVideo</button>
-                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="cancle()">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="cancel()">Cancel</button>
                             </form>
                         </div>
                     </div>
@@ -149,10 +149,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <script>
-        function cancle() {
+        //function to cancel the progres and refresh
+        function cancel() {
             location.reload();
-        }
-
+        };
     </script>
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
@@ -160,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script id="template-upload" type="text/x-tmpl">
     {%
-        $('#file').prop( "disabled", true );
+        //$('#file').prop( "disabled", true );
     %}
     {%
         for (var i=0, file; file=o.files[i]; i++) { %}

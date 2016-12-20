@@ -64,16 +64,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <dl class="dl-horizontal">
                                 <?php
                                     $json = json_decode($toFrameSetJson);
+                                    /*
                                     echo "<dt>ID</dt>";
                                     echo "<dd>" . $json->{'ID'} . "</dd>";
+                                    echo "<dt>File</dt>";
+                                    echo "<dd>" . $json->{'TempFile'} . "</dd>";
                                     echo "<dt>Duration</dt>";
                                     echo "<dd>" . $json->{'Duration'} . "</dd>";
-                                    echo "<dt>IsBase</dt>";
-                                    echo "<dd>" . $json->{'IsBase'} . "</dd>";
-                                    echo "<dt>LogInfo</dt>";
-                                    echo "<dd>" . $json->{'LogInfo'} . "</dd>";
+                                    echo "<dt>Height</dt>";
+                                    echo "<dd>" . $json->{'Height'} . "</dd>";
+                                    echo "<dt>Width</dt>";
+                                    echo "<dd>" . $json->{'Width'} . "</dd>";
                                     echo "<dt>Audio</dt>";
                                     echo "<dd>" . $json->{'Audio'} . "</dd>";
+                                    */
                                     echo "<dt>Number of Frames Generated</dt>";
                                     echo "<dd>" . count((array)($json->{'Frames'})) . "</dd>";
                                 ?>
@@ -87,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div id="json-upload">
                                             <div class="form-group">
                                                 <label for="key">Json Name</label>
-                                                <input type="text" name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name" placeholder="File name will get modified.">
+                                                <input type="text" name="key" value="<?php echo TEMP_JSON ?>" class="form-control" id="name">
                                             </div>
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
